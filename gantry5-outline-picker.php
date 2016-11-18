@@ -60,7 +60,7 @@ add_action( 'save_post', 'gop_save_post_init' );
  * @return void
  */
 function gop_init(){
-	return new GOP\gop\gop_read;
+	new GOP\gop\gop_read;
 }
 
 /**
@@ -71,7 +71,11 @@ function gop_init(){
  */
 function gop_enqueue_scripts() {
 	if ( $GLOBALS['pagenow'] === 'post.php' && $_GET[ 'action' ] === 'edit' && get_post_type() === 'page' ) {
-		wp_enqueue_style( 'gop-main', plugin_dir_url( __FILE__ ) . 'assets/gop.css' );
+		/** @noinspection PhpIncludeInspection */
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		$plugin_path = is_plugin_active( substr( __FILE__, strrpos( __FILE__, '/', -28 ) + 1 ) ) ? plugin_dir_url( __FILE__ ) : get_template_directory_uri() . '/includes/vendor/gantry5-outline-picker/';
+
+		wp_enqueue_style( 'gop-main', $plugin_path . 'assets/gop.css' );
 	}
 }
 add_action( 'admin_enqueue_scripts', 'gop_enqueue_scripts' );
