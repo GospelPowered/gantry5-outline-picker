@@ -1,6 +1,15 @@
 /*
  * This is the main selector of the meta box
  */
-#gop-picker {
-	
+#gop-picker .handlediv {
+    color: #fff;
+}
+
+#gop-picker h2 {
+    background: #4c9ce0;
+    color: #fff;
+}
+
+#gop-picker .gop-outline {
+    width: 99%;
 }
