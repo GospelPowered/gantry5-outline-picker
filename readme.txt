@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Gantry Outline Picker ===
 Contributors: gospelpowered
 Donate link: https://www.paypal.me/GospelPowered
 Tags: gantry5, outline
