@@ -29,8 +29,22 @@ class gop_read {
 		'default' => 'Base Outline',
 	);
 
+	/**
+	 * @var bool|null True if is a new page, false otherwise. Null if not editing a page.
+	 * @since 1.0.0
+	 */
+	public $new_page;
+
+	/**
+	 * @var bool If we are editing a page
+	 * @since 1.0.0
+	 */
+	public $is_page;
+
 	function __construct() {
 		$this->outlines_dir = get_template_directory() . '/custom/config';
+		$this->new_page     = isset( $_GET['action'] ) && $_GET['action'] === 'edit' ? false : ( $GLOBALS['pagenow'] === 'post-new.php' && $_GET['post_type'] === 'page' ? true : null );
+		$this->is_page      = $this->new_page !== null;
 
 		if ( ! $this->pre_init_tests() || ! $this->get_outlines() ) {
 			echo $this->spawn_error( $this->error_message );
@@ -38,8 +52,10 @@ class gop_read {
 			return;
 		}
 
-		if ( isset( $_GET['action'] ) && $_GET['action'] === 'edit' ) {
+		if ( $this->is_page ) {
 			echo $this->show_outlines();
+		} else {
+			echo $this->spawn_error( 'Not editing a page.' );
 		}
 	}
 
@@ -127,17 +143,19 @@ class gop_read {
 	 * @return bool|string false if there isn't one, slug if there is
 	 */
 	function get_assigned_outline() {
-		$current_post = $_GET['post'];
-		settype( $current_post, 'int' );
+		if ( ! $this->new_page ) {
+			$current_post = $_GET['post'];
+			settype( $current_post, 'int' );
 
-		foreach ( $this->outlines as $slug => $outline ) {
-			$assignments_file = $this->outlines_dir . '/' . $slug . '/assignments.yaml';
+			foreach ( $this->outlines as $slug => $outline ) {
+				$assignments_file = $this->outlines_dir . '/' . $slug . '/assignments.yaml';
 
-			if ( file_exists( $assignments_file ) ) {
-				$assignments = Spyc::YAMLLoad( $assignments_file );
+				if ( file_exists( $assignments_file ) ) {
+					$assignments = Spyc::YAMLLoad( $assignments_file );
 
-				if ( isset( $assignments['post']['page'][ $current_post ] ) && $assignments['post']['page'][ $current_post ] === true ) {
-					return $slug;
+					if ( isset( $assignments['post']['page'][ $current_post ] ) && $assignments['post']['page'][ $current_post ] === true ) {
+						return $slug;
+					}
 				}
 			}
 		}
