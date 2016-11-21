@@ -71,18 +71,20 @@ class gop_read {
 	 * Show a list of outlines
 	 *
 	 * @since 1.0.0
-	 * @return void
+	 * @return string HTML select box with outlines
 	 */
 	function show_outlines() {
 		$assigned_outline = $this->get_assigned_outline();
 		
-		echo '<select name="gop_outline">';
+		$return = '<select name="gop_outline">';
 		
 		foreach( $this->outlines as $slug => $outline ){
-			echo '<option value="' . $slug . '" ' . ( $assigned_outline === $slug ? 'selected' : ( $slug === 'default' ? 'selected' : '' ) ) . '>' . $outline . '</option>';
+			$return .= '<option value="' . $slug . '" ' . ( $assigned_outline === $slug ? 'selected' : ( $slug === 'default' ? 'selected' : '' ) ) . '>' . $outline . '</option>';
 		}
 		
-		echo '</select>';
+		$return .= '</select>';
+
+		return $return;
 	}
 	
 	/**
