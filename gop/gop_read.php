@@ -18,7 +18,7 @@ class gop_read {
 	 * @since 1.0.0
 	 */
 
-	public $error_message = 'An error has occured.';
+	public $error_message = 'An error has occurred.';
 
 	/**
 	 * @var array Array of outlines
