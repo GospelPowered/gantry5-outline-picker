@@ -73,7 +73,7 @@ function gop_init() {
  * @return void
  */
 function gop_enqueue_scripts() {
-	if ( $GLOBALS['pagenow'] === 'post.php' && $_GET['action'] === 'edit' && get_post_type() === 'page' ) {
+	if ( ( ( $GLOBALS['pagenow'] === 'post.php' && $_GET['action'] === 'edit' ) || $GLOBALS['pagenow'] === 'post-new.php' ) && get_post_type() === 'page' ) {
 		/** @noinspection PhpIncludeInspection */
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		$plugin_path = is_plugin_active( substr( __FILE__, strrpos( __FILE__, '/', - 28 ) + 1 ) ) ? plugin_dir_url( __FILE__ ) : get_template_directory_uri() . '/includes/vendor/gantry5-outline-picker/';
