@@ -4,10 +4,12 @@
 #gop-picker .handlediv {
     color: #fff;
 }
+
 #gop-picker h2 {
     background: #4c9ce0;
     color: #fff;
 }
+
 #gop-picker .inside select {
     width: 99%;
 }
