@@ -1,4 +1,4 @@
-=== Gantry 5 Outline Picker ===
+=== Page Outline Assignment ===
 Contributors: gospelpowered
 Donate link: https://www.paypal.me/GospelPowered
 Tags: gantry5, outline
@@ -8,11 +8,11 @@ Stable tag: 4.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-The Gantry 5 Outline Picker allows you to choose your desired Gantry 5 outline when creating pages, saving you time!
+The Page Outline Assignment plugin allows you to choose your desired Gantry 5 outline when creating pages, saving you time!
 
 == Description ==
 
-The Gantry 5 Outline Picker saves you time when creating pages using Gantry 5 enabled themes. Traditionally you would have to create a page, then go into Gantry outlines, then into Assignments and select the page you just created. 
+The Page Outline Assignment plugin saves you time when creating pages using Gantry 5 enabled themes. Traditionally you would have to create a page, then go into Gantry outlines, then into Assignments and select the page you just created. 
 
 With this plugin, you will have one click ability to assign new or existing pages to Gantry 5 Outlines!
 
