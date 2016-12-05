@@ -93,7 +93,7 @@ class gop_read {
 
 		// Remove system and default outlines
 		foreach ( $outlines_list as $key => $outline ) {
-			if ( substr( $outline, 0, 1 ) !== '_' && $outline !== 'default' ) {
+			if ( is_dir( $this->outlines_dir . '/' . $outline ) && substr( $outline, 0, 1 ) !== '_' && $outline !== 'default' ) {
 				$outlines[ $outline ] = ucwords( str_replace( '_', ' ', $outline ) );
 			}
 		}
