@@ -42,7 +42,7 @@ class gop_read {
 	public $is_page;
 
 	function __construct() {
-		$this->outlines_dir = get_template_directory() . '/custom/config';
+		$this->outlines_dir = get_stylesheet_directory() . '/custom/config';
 		$this->new_page     = isset( $_GET['action'] ) && $_GET['action'] === 'edit' ? false : ( $GLOBALS['pagenow'] === 'post-new.php' && $_GET['post_type'] === 'page' ? true : null );
 		$this->is_page      = $this->new_page !== null;
 

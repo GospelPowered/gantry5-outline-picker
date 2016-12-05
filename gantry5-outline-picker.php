@@ -3,7 +3,7 @@
  * Plugin Name: Gantry 5 Outline Picker
  * Plugin URI: http://gospelpowered.com/
  * Description: Outline picker for WordPres pages on Gantry 5 based themes.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Gospel Powered
  * Author URI: http://gospelpowered.com/
  * License: GNU General Public License v2 or later
